@@ -81,4 +81,18 @@ export class TodoEditComponent implements OnInit {
             this.todoService.addRecord(this.todo).subscribe(() => this.goToList());
         }
     }
+
+
+    /**
+     * deletes the record from the database and returns to the list
+     *
+     * @return  void
+     * @author  Markus Buscher
+     */
+    delete(): void {
+        const result = confirm('Wollen sie diesen Eintrag wirklich unwiderruflich löschen?');
+        if (result) {
+            this.todoService.deleteRecord(this.todo).subscribe(() => this.goToList());
+        }
+    }
 }

@@ -38,7 +38,10 @@ export class TodoListComponent implements OnInit {
      * @author  Markus Buscher
      */
     delete(todo: Todo): void {
-        this.todos = this.todos.filter(h => h !== todo);
-        this.todoService.deleteRecord(todo).subscribe();
+        const result = confirm('Wollen sie diesen Eintrag wirklich unwiderruflich löschen?');
+        if (result) {
+            this.todos = this.todos.filter(h => h !== todo);
+            this.todoService.deleteRecord(todo).subscribe();
+        }
     }
 }

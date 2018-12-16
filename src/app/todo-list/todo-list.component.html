@@ -40,7 +40,7 @@
                     <small>{{todo.description}}</small>
                 </td>
                 <td>{{todo.owner}}</td>
-                <td>{{todo.complete_till_ts}}</td>
+                <td>{{todo.complete_till_ts | date:'dd.MM.yyyy'}}</td>
                 <td align="right">
                     <button class="btn btn-danger btn-small" (click)="delete(todo)" title="Löschen?"><i
                             class="fas fa-trash-alt"></i></button>
