@@ -3,3 +3,7 @@
 td [align=right], th [align=right] {
     text-align: right;
 }
+
+div.row {
+    margin-top: 20px;
+}
