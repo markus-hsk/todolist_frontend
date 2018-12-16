@@ -1,0 +1,15 @@
+.okay {
+    color: green;
+}
+
+.p_high {
+    color: red;
+}
+
+.p_normal {
+    color: grey;
+}
+
+.p_low {
+    color: dodgerblue;
+}

@@ -1,0 +1,53 @@
+<div class="container">
+
+    <h1>
+        <i class="fas fa-clipboard-list"></i>
+        Aktuelle Todos
+        <a routerLink="/todos/0">
+            <button class="btn btn-success btn-small" title="Neu" style="float:right;"><i
+                    class="fas fa-plus"></i></button>
+        </a>
+    </h1>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Titel</th>
+                <th>Bearbeiter</th>
+                <th>bis wann?</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let todo of todos">
+                <td>
+            <span *ngIf="todo.done == 1">
+              <i class="fas fa-check-circle okay fa-2x fa-fw" title="Erledigt"></i>
+            </span>
+                    <span *ngIf="todo.done != 1">
+              <i class="fas fa-exclamation-circle fa-2x fa-fw p_high" *ngIf="todo.priority == 1"
+                 title="Hohe Priorität"></i>
+              <i class="far fa-dot-circle fa-2x fa-fw p_normal" *ngIf="todo.priority == 0"
+                 title="Normale Priorität"></i>
+              <i class="fas fa-angle-down fa-2x fa-fw p_low" *ngIf="todo.priority == -1"
+                 title="Niedrige Priorität"></i>
+            </span>
+                </td>
+                <td>
+                    <a routerLink="/todos/{{todo.id}}">{{todo.title}}</a><br>
+                    <small>{{todo.description}}</small>
+                </td>
+                <td>{{todo.owner}}</td>
+                <td>{{todo.complete_till_ts}}</td>
+                <td align="right">
+                    <button class="btn btn-danger btn-small" (click)="delete(todo)" title="Löschen?"><i
+                            class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
