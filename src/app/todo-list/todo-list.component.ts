@@ -11,6 +11,7 @@ import {TodoService} from '../todo.service';
 export class TodoListComponent implements OnInit {
 
     public todos: Todo[];
+    public searchterm = '';
 
     constructor(private todoService: TodoService) {
     }
@@ -27,7 +28,7 @@ export class TodoListComponent implements OnInit {
      * @author  Markus Buscher
      */
     getRecords(): void {
-        this.todoService.getAll().subscribe(todos => this.todos = todos);
+        this.todoService.getAll(this.searchterm).subscribe(todos => this.todos = todos);
     }
 
 

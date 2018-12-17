@@ -22,11 +22,12 @@ export class TodoService {
     /**
      * Fetch all todos from the server
      *
+     * @param   searchterm - Search string to use for filtering
      * @return  Observable
      * @author  Markus Buscher
      */
-    getAll(): Observable<Todo[]> {
-        return this.http.get<Todo[]>(this.apiUrl)
+    getAll(searchterm: string): Observable<Todo[]> {
+        return this.http.get<Todo[]>(this.apiUrl + '?searchterm=' + searchterm)
             .pipe(
                 tap(_ => this.log('fetched todos')),
                 catchError(this.handleError('getAll', []))
